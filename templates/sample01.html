@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		#login .form-control{
+			/*宽度，高度，边框*/
+			width:298px;
+			height:36px;
+			border:1px solid #ccc;
+			/*取消轮廓*/
+			outline:none;
+		}
+
+		#login .isRem{
+			width:18px;
+			height:18px;
+		}
+
+		#login,#login a{
+			color:#999;
+		}
+
+		#login .btnLogin{
+			/*宽度，高度，背景颜色，文本颜色，文本大小*/
+			width:143px;
+			height:40px;
+			background-color:#64A131;
+			color:#fff;
+			font-size:18px;
+			/*取消边框*/
+			border:none;
+			/*边框倒角*/
+			border-radius:5px;
+		}
+
+
+		/*增加边框阴影*/
+		#login .form-control:focus{
+			box-shadow:0 0 3px #64a131;
+			border-color:#64a131;
+		}
+
+
+		/*框模型的练习：为文本框和密码框增加左右内边距*/
+		#login .form-control{
+			padding:0 10px;
+			/*重新指定元素的尺寸*/
+			/* width:278px; *//*300px减去左右各10px的内边距再减去左右各1px的边框*/
+			/* height:38px; *//*40px减去上下各1px的边框*/
+
+			width:300px;
+			height:40px;
+			box-sizing:border-box;
+		}
+	</style>
+ </head>
+ <body>
+  <form action="/login/" method="post">
+		<table id="login">
+			<tr>
+				<td>手机号</td>
+				<td>
+					<input type="text" name='uname' class='form-control'>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">密码</td>
+				<td>
+					<input type="password" name='upwd' class='form-control' placeholder='请输入6-20位号码字符'>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="checkbox" name='isRem' checked class="isRem">记住密码
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#">忘记密码</a>
+					<a href="#">快捷登录</a>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="submit" value="登录" class="btnLogin">
+					<a href="#">注册会员</a>
+				</td>
+			</tr>
+            <tr>
+                <td></td>
+                <td style="color:red">{{error}}</td>
+            </tr>
+		</table>
+	</form>
+ </body>
+</html>

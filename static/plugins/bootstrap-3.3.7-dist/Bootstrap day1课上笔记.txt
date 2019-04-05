@@ -1,0 +1,73 @@
+﻿1.什么是BootStrap？
+	由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML框架 简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。
+
+	https://v3.bootcss.com/
+	1. Bootstrap下载
+		https://v3.bootcss.com/ -> 起步 -> 下载 -> 用于生产环境的版本
+	
+	2. Bootstrap目录结构
+		- css 样式文件 引用了下面的字体文件
+			-Bootstrap.min.css
+			
+		- fonts 字体文件
+		
+		- js JS文件 依赖jQuery
+			-Bootstrap.min.js
+	
+	3. viewport
+		响应式开发必须在页面head中声明：
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	4. 栅格系统
+		1. 首先要有一个container
+		2. container里面放row
+		3. row里面放column   col-xx(lg md sm xs)-xx(1~12)
+		
+		4. 同一个页面在不同显示设备上应用不同的样式
+			给标签设置多个col-xx-xx 样式类
+			
+		5. 列偏移
+			col-xx-offset-xx
+			
+		6. 列嵌套 --> 把某一列再分成12份（注意还要写一个row）
+		
+		7. 列排序
+			col-xx-push-xx
+			col-xx-pull-xx
+			
+		8. 表单样式
+		
+		9. 按钮
+		
+		10.图片
+			
+			
+			
+			
+2. 今日作业
+	1. 登录页面
+		1. 布局使用的是col-xx-4和col-offset-4
+		2. 表单样式
+		
+	2. 进阶作业
+		给登录页面加上jQuery版的校验
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

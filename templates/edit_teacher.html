@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <title>编辑老师页面</title>
+  <link rel="stylesheet" href="/static/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+ </head>
+ <body>
+ <div class="container">
+     <div class="page-header">
+         <h1>老师信息管理
+             <small>编辑老师信息</small>
+         </h1>
+     </div>
+
+{# 提交班级信息的表单 开始；action="/edit_teacher/" 是url路径，method="post" 是获取信息的方法#}
+<div class="row">
+     <div class="col-md-6 col-md-offset-3">
+        <form class="form-horizontal" action="{% url "edit_teacher" %}" method="post">
+            <div class="form-group">
+                <label for="inputTeacherName" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input name="id" type="text" class="form-control" id="inputTeacherID"
+                           value="{{ teacher.id }}" style="display:none">
+                </div>
+            </div>
+
+          <div class="form-group">
+            <label for="inputTeacherName" class="col-sm-2 control-label">老师姓名</label>
+            <div class="col-sm-10">
+              <input name="tname" type="text" class="form-control" id="inputTeacherName" value="{{ teacher.tname}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputClassName" class="col-sm-2 control-label">授课班级</label>
+            <div class="col-sm-10">
+                {# multiple:多选 #}
+                <select class="form-control" name="cid" multiple>
+                  {% for class in class_list %}
+                      {% if class.id in teacher.cid %}
+                          <option selected value="{{ class.id }}">{{ class.cname }}</option>
+                      {% else %}
+                          <option  value="{{ class.id }}">{{ class.cname }}</option>
+                      {% endif %}
+                  {% endfor %}
+              </select>
+            </div>
+          </div>
+           <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-success">提交</button>
+
+            </div>
+          </div>
+        </form>
+        </div>
+    </div>
+ {# 提交班级信息的表单 结束 #}
+ </div>
+  
+ </body>
+</html>

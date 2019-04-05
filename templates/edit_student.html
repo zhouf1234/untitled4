@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <title>编辑学生页面</title>
+  <link rel="stylesheet" href="/static/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+ </head>
+ <body>
+ <div class="container">
+     <div class="page-header">
+         <h1>学生信息管理
+             <small>编辑学生信息</small>
+         </h1>
+     </div>
+
+{# 提交班级信息的表单 开始 #}
+<div class="row">
+     <div class="col-md-6 col-md-offset-3">
+        <form class="form-horizontal" action="/edit_student/" method="post">
+            <div class="form-group">
+                <label for="inputStudentName" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input name="id" type="text" class="form-control" id="inputStudentID"
+                           value="{{ student.id }}" style="display:none">
+                </div>
+            </div>
+
+          <div class="form-group">
+            <label for="inputStudentName" class="col-sm-2 control-label">学生姓名</label>
+            <div class="col-sm-10">
+              <input name="sname" type="text" class="form-control" id="inputStudentName" value="{{ student.sname}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputClassName" class="col-sm-2 control-label">所在班级</label>
+            <div class="col-sm-10">
+              <select class="form-control" name="cid">
+                  {% for class in class_list %}
+                      {% if student.cid == class.id %}
+                          <option selected value="{{ class.id }}">{{ class.cname }}</option>
+                      {% else %}
+                          <option  value="{{ class.id }}">{{ class.cname }}</option>
+                      {% endif %}
+                  {% endfor %}
+              </select>
+            </div>
+          </div>
+           <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-success">提交</button>
+              <a href="/student_list/" type="submit" class="btn btn-default">取消</a>
+            </div>
+          </div>
+        </form>
+        </div>
+    </div>
+ {# 提交班级信息的表单 结束 #}
+ </div>
+  
+ </body>
+</html>
